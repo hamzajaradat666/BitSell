@@ -1,0 +1,84 @@
+*{
+    outline: none;
+    text-decoration: none;
+}
+
+html{
+    
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+
+    text-decoration: none;!important;
+    color: black;
+    background-color: blueviolet;
+}
+
+a:hover,a:visited,a:link,a:active {
+    text-decoration: none!important;
+    color: black;
+}
+
+.mybody{
+    
+     !important;
+    background-color: #ffffff;
+}
+
+.mycar {
+     min-height: 300px;
+     background-color: darkcyan;
+     margin-bottom: 20px;
+    
+}
+.car_con {
+    
+    max-width: 20px;
+}
+.item-box {
+    
+    padding: 10px;
+    /*border: solid 1px gray;*/
+    transition: 1s;
+}
+.item-box:hover{
+    
+   
+   margin-top: -10px;
+    transition: 1s;
+    
+}
+.list-items {
+    
+    margin-left: 20px;
+}
+.item-img {
+    
+    max-height: 200px;
+    max-width: 300px;
+    
+}
+.car_con:hover {
+    
+    background-color: black;
+}
+
+.categories {
+    
+    margin-bottom: 50px;
+    
+}
+
+.cata-links {
+     margin-left: 10px;
+    margin-right: 10px;
+}
+
+ul.dropdown-styles {
+    
+    padding: 20px;
+    background-color: #b0c3e2;
+    border: solid 1px gray;
+}
