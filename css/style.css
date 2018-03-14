@@ -82,3 +82,8 @@ ul.dropdown-styles {
     background-color: #b0c3e2;
     border: solid 1px gray;
 }
+
+.buttons {
+    border-radius: 10px;
+    background-color: aquamarine;
+}
