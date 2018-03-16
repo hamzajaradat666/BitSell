@@ -35,42 +35,25 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-ligth  bg-ligth">
-            <a class="navbar-brand col-sm-1" href="index.html"><img class="w-100 navlogo" src="css/logo.png"></a>
+            <a class="navbar-brand col-sm-1" href="index.php"><img class="w-100 navlogo" src="css/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/carousel/#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/carousel/#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/carousel/#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/carousel/#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/carousel/#">Link</a>
-                    </li>
-
-                </ul>
+                
                 <form class="form-inline mt-2 mt-md-0">
 
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 
                     <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit" style="margin-left: 5px">Search</button>
 
-                    <a href="cart.html" style="margin-left: 5px">
+                    <a href="cart.php" style="margin-left: 5px">
                     <span class="caret">Shopping Cart<img src="css/shopcart.png" width="50px;"></span></a>
                     
                     
                     <div class="dropdown">
                         <button class="btn btn-outline-primary dropdown-toggle" style="margin-left: 5px" type="button" data-toggle="dropdown">
-                    <span class="caret">User Name</span></button>
+                    <span class="caret"> <p><?php echo $user->username?></p></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="#">Log Out</a></li>
                         </ul>
@@ -121,7 +104,7 @@
                 <h5 class="text-uppercase">Other Pages</h5>
                 <ul class="list-unstyled">
                     
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
 
                 </ul>
             </div>
@@ -133,7 +116,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
         <div class="container-fluid">
-            © 2018 Copyright: <a href="index.html"> Bitsell.com </a>
+            © 2018 Copyright: <a href="index.php"> Bitsell.com </a>
 
         </div>
     </div>
@@ -143,6 +126,6 @@
 <!--/.Footer-->
 
 
-
+    </body>
 
 </html>

@@ -35,16 +35,16 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-ligth  bg-ligth">
-            <a class="navbar-brand col-sm-1" href="index.html"><img class="w-100 navlogo" src="css/logo.png"></a>
+            <a class="navbar-brand col-sm-1" href="index.php"><img class="w-100 navlogo" src="css/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
                  
         </button>
-            <a href="cart.html" style="margin-left: 5px">
+            <a href="cart.php" style="margin-left: 5px">
                 <span class="caret">Shopping Cart<img src="css/shopcart.png" width="50px;"></span></a>
         </nav>
     </header>
-
+<body>
 
     <div class="mybody">
 
@@ -307,14 +307,15 @@
 <option value="YE">Yemen</option>
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabwe</option></select><br><br>
-            
+            </label><br>
                 <label>Phone Number<br><input class="" type="text" placeholder=""></label><br>    
                     
                 <input type="submit" value="Proceed">
 
-            </form>
+            </form> 
+
         
-            </form>
+            
 
         </div>
         
@@ -351,7 +352,7 @@
             <div class="col-md-6">
                 <h5 class="text-uppercase">Other Pages</h5>
                 <ul class="list-unstyled">
-                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="aboutus.php">About Us</a></li>
 
                 </ul>
             </div>
@@ -363,7 +364,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
         <div class="container-fluid">
-            © 2018 Copyright: <a href="index.html"> Bitsell.com </a>
+            © 2018 Copyright: <a href="index.php"> Bitsell.com </a>
 
         </div>
     </div>

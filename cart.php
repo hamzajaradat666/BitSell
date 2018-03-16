@@ -20,7 +20,7 @@
     <div class="container text-center" style="margin-top: 100px;">
 
         <div class="col-md-5 col-sm-12">
-            <a href="index.html"><img class="img-responsive" src="css/logo.png" style="posistion:absolute"></a>
+            <a href="index.php"><img class="img-responsive" src="css/logo.png" style="posistion:absolute"></a>
 
         </div>
 
@@ -75,8 +75,8 @@
     <table id="cart" class="table table-hover table-condensed">
        
             <tr>
-                <td><a href="index.html" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                <td><a href="checkout.html" class="btn btn-primary btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                <td><a href="index.php" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td><a href="checkout.php" class="btn btn-primary btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
             </tr>
     </table>
 

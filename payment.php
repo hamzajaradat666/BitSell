@@ -35,11 +35,11 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-ligth  bg-ligth">
-            <a class="navbar-brand col-sm-1" href="index.html"><img class="w-100 navlogo" src="css/logo.png"></a>
+            <a class="navbar-brand col-sm-1" href="index.php"><img class="w-100 navlogo" src="css/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-            <a href="cart.html" style="margin-left: 5px">
+            <a href="cart.php" style="margin-left: 5px">
                 <span class="caret">Shopping Cart<img src="css/shopcart.png" width="50px;"></span></a>
         </nav>
     </header>

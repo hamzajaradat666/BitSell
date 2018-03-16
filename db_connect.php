@@ -1,7 +1,7 @@
 <?php
 # bit sell : bs
 $bs_db_host     = '127.0.0.1';
-$bs_db_dbname   = 'bit_sell';
+$bs_db_dbname   = 'bitsell';
 $bs_db_username = 'root';
 $bs_db_password = '';
 
@@ -22,11 +22,10 @@ mysqli_query($bs_db_handle, "SET NAMES 'utf8'");
 
 
 function bsf_db_close() {
+    
 	global $bs_db_handle;
 	@mysqli_close($bs_db_handle);
 }
 
-echo "OK";
 
-include_once('payment.html');
 ?>

@@ -40,14 +40,14 @@ a:hover,a:visited,a:link,a:active {
 .item-box {
     
     padding: 10px;
-    /*border: solid 1px gray;*/
-    transition: 1s;
-}
-.item-box:hover{
     
-   
-   margin-top: -10px;
-    transition: 1s;
+    
+}
+.item-box:hover {
+    
+    border: solid 1px #d0cbcb;
+    border-radius: 11px;
+    
     
 }
 .list-items {
@@ -87,3 +87,50 @@ ul.dropdown-styles {
     border-radius: 10px;
     background-color: aquamarine;
 }
+
+.data-box{
+    
+    margin: auto 40%;
+    margin-top: 5%;
+    
+}
+
+.logo-login{
+    
+    max-width: 100px;
+}
+input{
+   border-radius: 5px;
+    border-top: solid 1px rgb(26, 136, 172);
+    transition: 0.5s;
+}
+.input:focus {
+    border-radius: 5px;
+    border-top: solid 5px rgb(26, 136, 172);
+    transition: 0.5s;
+    color: firebrick;
+}
+
+input[type=submit]{
+    background-color: gray;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+input[type=submit]:hover{
+    background-color: #adadad;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.htmlbody {
+    
+    background-color: #e0e0e0;
+    
+}
+
+.switch-link:hover {
+    
+    color: firebrick;
+}
+

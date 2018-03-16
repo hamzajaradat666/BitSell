@@ -11,37 +11,45 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/style2.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 
 
 </head>
 
-<body class="reg-body">
-    
-    <div class="row">
-        <div class="col-sm-2" id="login-box">
-            <img class="logoreg" src="css/logo.png">
+    <body class="htmlbody">
+
+    <div class="data-box">
+        
+        <div class="container">
+        
+        <img class="logo-login img-responsive" src="css/logo.png" style="margin-bottom:20px;">
+ 
+            <h2>Login</h2>
             <br>
-            <h1>Login</h1>
-            <form method="post" action="#">
-                <input class="input" type="email" name="email" placeholder="E-mail" required>
-                <input class="input" type="password" name="password" placeholder="Password" required>
+            
+    <form method="post" action="#">
+                <input class="input" type="email" name="email" placeholder="E-mail" required><br><br>
+                <input class="input" type="password" name="password" placeholder="Password" required><br><br>
                 <input type="submit" name="signup_submit" value="Login">
             </form>
-        </div>
+            
+        <br>
+            
+        <a class="switch-link" href="register.php"><p>Don't have an account?<br>Sign Up Here</p></a>
+            
     </div>
     
-    <div class="row">
-        <div class="col-sm-2" id="login-box" style="padding: 20px; margin-top:-1px; ">
-            <br>
-            <a href="register.html"><p>Do not have an account?,Sign up Here</p></a>
-            
-        </div>
     </div>
+    
 
 
 
 
 </body>
+
+    
+    
+ 
+
 
 </html>

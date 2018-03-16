@@ -4,7 +4,7 @@
 
 <head>
     <title>
-        BitSell
+BitSell
     </title>
 
     <script src="js/script.js"></script>
@@ -35,12 +35,12 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-ligth  bg-ligth">
-            <a class="navbar-brand col-sm-1" href="index.html"><img class="w-100 navlogo" src="css/logo.png"></a>
+            <a class="navbar-brand col-sm-1" href="index.php"><img class="w-100 navlogo" src="css/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-                 
+
         </button>
-            <a href="cart.html" style="margin-left: 5px">
+            <a href="cart.php" style="margin-left: 5px">
                 <span class="caret">Shopping Cart<img src="css/shopcart.png" width="50px;"></span></a>
         </nav>
     </header>
@@ -52,40 +52,31 @@
 
     <div class="mybody">
         <div class="container">
+            <?php
+            include_once('users_api.php');
+            $users = bsf_users_get();
+            $users_count = count($users);
+            if ($users_count == 0)
+                die('no users');
+            echo '<table class="table table-hover">';
+            echo '<thead><tr><th>User Name</th><th>Email</th><th>is admin?</th><th>Remove Users</th><th>Edit Users</th></tr>';
+            echo '</thead><tbody>';
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Remove Users</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>john@example.com</td>
-                        <td>7647644</td>
+            for ($i = 0; $i < $users_count; $i++) {
+                $user = $users[$i];
+                echo '<tr>';
+                echo "<td><a href=\"user_profile.php?id=$user->user_id\">" . $users[$i]->username  . "</a></td>";
+                echo "<td>" . $users[$i]->email     . "</td>";
+                $is_admin =  $users[$i]->isadmin == 1 ? 'YES': 'NO'; echo "<td>" . $is_admin. "</td>";
+                echo "<td><a href=\"delete_user.php?id=$user->user_id\">delete</a></td>";
+                echo "<td><a href=\"edit_user.php?id=$user->user_id\">Edit</a></td>";
+                echo '</tr>';
+            }
+            echo '</tr></tbody></table>';
+            bsf_db_close();
 
-                        <td><a href="db_connect.php">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>mary@example.com</td>
-                        <td>4352236</td>
+            ?>
 
-                        <td><a href="db_connect.php">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>july@example.com</td>
-                        <td>2314214</td>
-
-                        <td><a href="db_connect.php">Delete</a></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
 
@@ -100,10 +91,6 @@
 </body>
 
 <hr>
-
-
-
-
 
 
 </html>
