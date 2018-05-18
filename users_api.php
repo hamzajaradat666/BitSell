@@ -1,5 +1,5 @@
 <?php
-include('db_connect.php');
+
 
 # returns selected users as an array of objects ($users)
 function bsf_users_get($select ='*', $extra = '') {

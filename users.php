@@ -53,6 +53,7 @@ BitSell
     <div class="mybody">
         <div class="container">
             <?php
+            require_once 'db_connect.php';
             include_once('users_api.php');
             $users = bsf_users_get();
             $users_count = count($users);

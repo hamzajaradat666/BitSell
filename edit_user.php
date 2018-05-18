@@ -1,4 +1,8 @@
 <?php
+require_once 'db_connect.php';
+require_once 'session.php';
+if ($_SESSION['user info'] == false)
+    header('Location: index.php');
 
 if (!isset($_GET['id']))
     die('bad access1');
@@ -6,12 +10,17 @@ if (!isset($_GET['id']))
 $_id = (int)$_GET['id'];
 if ($_id == 0)
     die('bad access2');
+if($_SESSION['user info']->isadmin != 1) {
+    if ($_SESSION['user info']->user_id != $_id)
+        header('Location: index.php');
+}
+
 require_once ('users_api.php');
 
 $user = bsf_users_get_by_id($_id);
 bsf_db_close();
 
-if ($user == NULL)
+if ($user == NULL)  
     die('bad user id');
 
 ?>
@@ -28,6 +37,7 @@ if ($user == NULL)
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
 

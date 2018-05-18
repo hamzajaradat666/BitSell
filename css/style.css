@@ -13,7 +13,6 @@ a {
 
     text-decoration: none;!important;
     color: black;
-    background-color: blueviolet;
 }
 
 a:hover,a:visited,a:link,a:active {
@@ -21,21 +20,19 @@ a:hover,a:visited,a:link,a:active {
     color: black;
 }
 
-.mybody{
-    
-     !important;
-    background-color: #ffffff;
-}
+
 
 .mycar {
-     min-height: 300px;
-     background-color: darkcyan;
+     min-height: 200px;
+     max-height: 600px;
+     background-color: red;
      margin-bottom: 20px;
     
 }
 .car_con {
     
-    max-width: 20px;
+    max-width: 15px;
+   
 }
 .item-box {
     
@@ -77,10 +74,11 @@ a:hover,a:visited,a:link,a:active {
 }
 
 ul.dropdown-styles {
-    
+    margin-top: 10px;
     padding: 20px;
-    background-color: #b0c3e2;
-    border: solid 1px gray;
+    border: solid 2px black;
+    width:400px;
+    color: cornflowerblue;
 }
 
 .buttons {
@@ -97,7 +95,9 @@ ul.dropdown-styles {
 
 .logo-login{
     
-    max-width: 100px;
+    min-width: 100px;
+    max-width: 200px;
+    
 }
 input{
    border-radius: 5px;
@@ -129,8 +129,86 @@ input[type=submit]:hover{
     
 }
 
-.switch-link:hover {
-    
-    color: firebrick;
+.switch-link:foucs {
+    !important color: firebrick;
 }
 
+.switch-link:hover {
+    
+    color: #ff8a8a;
+}
+
+
+
+
+.admin_sidebar { 
+    z-index: 10;
+    min-width: 10%;
+    min-height: 100%;
+    background-color: #787896;
+    position: fixed;
+    margin-top: 70px;
+
+}
+
+.admin_bar {
+    z-index: 99;
+    min-height: 7%;
+    width: 100%;
+    background-color: #474767;
+    position: fixed;
+    
+
+    
+    
+}
+
+.bar-items {
+    
+    margin:auto 40px;
+}
+
+.side_bar_items {
+    
+    
+    border-top: solid 1px black;
+    min-height: 50px;
+    text-align: center;
+    transition: 1s;
+}
+
+.side_bar_items:hover {
+    
+    background-color: #2a46a5;
+    transition: 1s;
+    
+}
+
+.aspect-ratio-img {
+    margin-left: 200px;
+    width: 200px;
+    height: auto;
+    
+}
+table,tr,td{
+    border: solid 0.5px #068cb7;
+    padding: 10px 5px; 
+    
+}
+.fancy_header {
+    
+    font-family: fantasy;
+    
+}
+
+.adminPanel:hover {
+    
+    background-color: aqua;
+    
+    
+}
+
+.mybody {
+    
+    
+}

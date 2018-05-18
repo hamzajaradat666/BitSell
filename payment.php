@@ -29,20 +29,11 @@
 
 
 
-<body class="container col-sm-9">
+<body class="">
     <!------------------------------------------------------------------------------------------------------------------------------------------>
 
-
-    <header>
-        <nav class="navbar navbar-expand-md navbar-ligth  bg-ligth">
-            <a class="navbar-brand col-sm-1" href="index.php"><img class="w-100 navlogo" src="css/logo.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-            <a href="cart.php" style="margin-left: 5px">
-                <span class="caret">Shopping Cart<img src="css/shopcart.png" width="50px;"></span></a>
-        </nav>
-    </header>
+    <?php require_once 'session.php'?>
+    <?php require_once 'z_HEADER.php'?>
 
 
 
@@ -56,22 +47,35 @@
                 <h3>Enter Payment Options:</h3><img src="css/credit-cards-beacon._CB385401666_.gif">
             </div>
 
-            <form class="col-sm-12" action="db_connect.php" method="post">
 
-                <label>Name on card<br><input class="" type="text" placeholder=""></label>
-                <label>Card number<br><input class="" type="text" placeholder=""></label>
-                <label>Expairation Date<br><input class="" type="date" placeholder=""></label>
-        
+            <div class="container">
                 
-                <input type="submit" value="Add Your Card">
+                <form action="">
+                    <div class="form-group">
+                        <label for="">Name On Card:</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="">Card Number:</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="">Expairation Date:</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
 
-            </form>
 
         </div>
-        
+
     </div>
 
-       
+
     <!-------------------------------------------------------------------------------------------------------------------------------------->
 
 

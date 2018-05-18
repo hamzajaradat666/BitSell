@@ -1,4 +1,5 @@
 <?php
+require_once 'db_connect.php';
 
 if (!isset($_POST['username']) || !isset($_POST['email']) || !isset($_POST['password']))
     die('bad access'); # if data sent from register.php
@@ -22,7 +23,8 @@ bsf_db_close();
 
 if(!$result)
     die("failed");
-else
-    die("Success");
+else {
+    header('Location: index.php');
+}
 
 

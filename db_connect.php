@@ -28,4 +28,4 @@ function bsf_db_close() {
 }
 
 
-?>
+

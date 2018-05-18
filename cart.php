@@ -1,3 +1,10 @@
+<?php
+require_once 'db_connect.php';
+require_once 'items_api.php';
+require_once 'cart_session.php';
+$items = $_SESSION['cart'];
+$cartitems = explode(',', $items);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,80 +20,74 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
+    <img src="css/bg-log2.jpg" style="z-index:-99; position:fixed; margin-top:-5%;">
+
 
 <br>
     
-    <div class="container text-center" style="margin-top: 100px;">
+    <div class="container text-center" style="margin-top: 50px;">
 
-        <div class="col-md-5 col-sm-12">
-            <a href="index.php"><img class="img-responsive" src="css/logo.png" style="posistion:absolute"></a>
+        <div class="col-md-5">
+            <a href="index.php"><img class="img-responsive" src="css/logo4.png" style="posistion:absolute"></a>
 
         </div>
 
-        <div class="col-md-7 col-sm-12 text-left">
+        <div class="col-md-7 text-left">
             <ul>
                 <li class="row list-inline columnCaptions">
                     <span>QTY</span>
                     <span>ITEM</span>
                     <span>Price</span>
                 </li>
-                <li class="row">
-                    <span class="quantity">1</span>
-                    <span class="itemName">Birthday Cake</span>
-                    <span class="popbtn"><a class="arrow"></a></span>
-                    <span class="price">$49.95</span>
-                </li>
-                <li class="row">
-                    <span class="quantity">50</span>
-                    <span class="itemName">Party Cups</span>
-                    <span class="popbtn"><a class="arrow"></a></span>
-                    <span class="price">$5.00</span>
-                </li>
-                <li class="row">
-                    <span class="quantity">20</span>
-                    <span class="itemName">Beer kegs</span>
-                    <span class="popbtn"><a class="arrow"></a></span>
-                    <span class="price">$919.99</span>
-                </li>
-                <li class="row">
-                    <span class="quantity">18</span>
-                    <span class="itemName">Pound of beef</span>
-                    <span class="popbtn"><a class="arrow"></a></span>
-                    <span class="price">$269.45</span>
-                </li>
-                <li class="row">
-                    <span class="quantity">1</span>
-                    <span class="itemName">Bullet-proof vest</span>
-                    <span class="popbtn" data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
-                    <span class="price">$450.00</span>
-                </li>
-                <li class="row totals">
-                    <span class="itemName">Total:</span>
-                    <span class="price">$1694.43</span>
-                   
-                </li>
+                <?php
+                $total = 0;
+
+
+                foreach($cartitems as $key => $id) {
+                    $sql = bsf_items_get_by_id($id);
+                    if (!$sql) {
+                        //echo 'No items in cart';
+                    } else {
+               echo '<li class="row">
+                        <span class="quantity">1</span>
+                        <span class="itemName">'. $sql->item_name .'</span>
+                        <span class="popbtn"><a class="	glyphicon glyphicon-remove" href="delcart.php?remove='. $key .'"></a></span>
+                        <span class="price">$'. $sql->price .'</span>
+                    </li>'; }?>
+                <?php
+                $total = $total + @$sql->price;
+                } ?>
+                <span class="price"><?php echo "TOTAL: $" . $total ?> </span>
+
             </ul>
         </div>
 
     </div>
     <!-- -->
-
-    <table id="cart" class="table table-hover table-condensed">
+<?php 
+    
+   
+        
+   echo '<table id="cart" class="table table-hover table-condensed">
        
             <tr>
-                <td><a href="index.php" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                <td><a href="checkout.php" class="btn btn-primary btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-            </tr>
-    </table>
+                <td><a href="index.php" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>';
+                 if($sql)    
+                echo '<td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>';
+            echo '</tr>
+    </table>';
+    
+    
+    ?>
 
 
     <!-- The popover content -->
 
-    <div id="popover" style="display: none">
+ <!--   <div id="popover" style="display: none">
         <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
         <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-    </div>
+    </div>-->
 
     <!-- JavaScript includes -->
 

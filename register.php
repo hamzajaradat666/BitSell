@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    
+    
+    <img src="css/bg-log.jpg" style="position:fixed; margin-top:-5%;">
 <head>
     <meta charset="UTF-8">
     <title>BitSell</title>
@@ -22,9 +25,9 @@
         
         <div class="container">
         
-        <img class="logo-login img-responsive" src="css/logo.png" style="margin-bottom:20px;">
+        <img class="logo-login img-responsive" src="css/logo4.png" style="margin-bottom:20px;">
         
-            <h2>Sign up</h2>
+            <h2 style="color:lightblue">Sign up</h2>
             <br>
         
     <form method="post" action="save_user.php">
@@ -38,7 +41,7 @@
             
         <br>
             
-        <a class="switch-link" href="login.php"><p>Already have an account?<br>Login Here</p></a>
+       <div style="background-color:rgba(255,255,255,0.2); border-radius:10px;"><a class="switch-link" href="login.php"><p>Already have an account?<br>Login Here</p></a></div>
             
     </div>
     

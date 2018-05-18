@@ -1,5 +1,14 @@
+<?php
+require_once 'db_connect.php';
+require_once 'session.php';
+if ($_SESSION['user info'] != false)
+    header('Location: index.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
+
+
+<img src="css/bg-log.jpg" style="position:fixed; margin-top:-5%;">
 
 <head>
     <meta charset="UTF-8">
@@ -19,37 +28,40 @@
     <body class="htmlbody">
 
     <div class="data-box">
-        
+
         <div class="container">
-        
-        <img class="logo-login img-responsive" src="css/logo.png" style="margin-bottom:20px;">
- 
-            <h2>Login</h2>
+
+        <img class="logo-login img-responsive" src="css/logo4.png" style="margin-bottom:20px;">
+
+            <h2 style="color:lightblue">Login</h2>
             <br>
-            
-    <form method="post" action="#">
+
+    <form method="post" action="check_login.php">
                 <input class="input" type="email" name="email" placeholder="E-mail" required><br><br>
                 <input class="input" type="password" name="password" placeholder="Password" required><br><br>
-                <input type="submit" name="signup_submit" value="Login">
+                <input type="submit" name="register" value="Login">
+                <?php if (isset($_GET['status'])) {
+                        echo "<p style='color: red;'>email or passowrd is incorrect</p>";
+                }?>
             </form>
-            
+
         <br>
-            
-        <a class="switch-link" href="register.php"><p>Don't have an account?<br>Sign Up Here</p></a>
-            
+
+        <div style="background-color:rgba(255,255,255,0.2); border-radius:10px;"><a class="switch-link" href="register.php"><p>Don't have an account?<br>Sign Up Here</p></a></div>
+
     </div>
-    
+
     </div>
-    
+
 
 
 
 
 </body>
 
-    
-    
- 
+
+
+
 
 
 </html>

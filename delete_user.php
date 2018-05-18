@@ -1,4 +1,10 @@
 <?php
+require_once 'db_connect.php';
+require_once 'session.php';
+
+if ($_SESSION['user info'] == false)
+    header('Location: index.php');
+
 
 require_once ('users_api.php');
 
@@ -6,10 +12,12 @@ if (!isset($_GET['id']))
     die('bad access');
 
 $_id = (int)$_GET['id'];
-
-if (!isset($_GET['c']) || $_GET['c'] != 1) {
-    die('<a href= delete_user.php?id=' . $_id . '&c=1>Are you sure?</a>');
+if($_SESSION['user info']->isadmin != 1) {
+    if ($_SESSION['user info']->user_id != $_id)
+        header('Location: index.php?status=failed');
 }
+
+
 
 
 $user = bsf_users_get_by_id($_id);
@@ -20,7 +28,7 @@ if ($user == NULL) {
 $result = bsf_users_delete_by_id($_id);
 bsf_db_close();
 if ($result)
-    die('success');
+    header('Location: admin_panel_users.php?id='. $_SESSION['user info']->user_id .'status=success');
 else
     die('failure');
 ?>
@@ -35,3 +43,4 @@ else
 </html>
 
 
+a

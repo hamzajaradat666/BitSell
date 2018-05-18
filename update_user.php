@@ -1,4 +1,5 @@
 <?php
+require_once 'db_connect.php';
 require_once("users_api.php");
 if (!isset($_GET['id']))
     die('bad access1');
@@ -39,7 +40,11 @@ bsf_db_close();
 
 if(!$result)
     die("failed");
-else
-    die("Success");
+else {
+    if ($user->isadmin == 1)
+        header('Location: admin_panel.php');
+    else
+        header('Location: index.php');
+}
 
 

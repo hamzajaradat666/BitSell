@@ -38,24 +38,23 @@ function bsf_items_get_by_id($item_id) {
     return $item;
 }
 # add a new item to items table in bit_sell database
-function bsf_items_add($price, $brand, $type, $in_stock, $item_name) {
+function bsf_items_add($price, $brand, $type, $quantity , $item_name, $des) {
     global $bs_db_handle;
 
-    $new_instock    = (int)$in_stock;
-    $new_price      = (float)$price;
-    $new_brand      = (int)$brand;
-    $new_type       = (int)$type;
-    if($in_stock != 0 && $in_stock != 1)
-        $new_instock = 0;
 
-    if(empty($price) || empty($brand) || empty($type) || empty($item_name))
+    $new_quantity    = (int)$quantity;
+    $new_price       = (float)$price;
+    $new_brand       = (int)$brand;
+    $new_type        = (int)$type;
+    if(empty($price) || empty($brand) || empty($type) || empty($item_name) || empty($des))
         return false;
+    
 
     $new_item_name  = mysqli_escape_string($bs_db_handle, strip_tags($item_name));
 
-    $query = sprintf("INSERT INTO `items` VALUES(NULL, %f, %d, %d, %d , '%s')", $new_price, $new_brand, $new_type, $new_instock, $new_item_name);
+    $query = sprintf("INSERT INTO `items` VALUES(NULL, %f, %d, %d, %d , '%s', '%s')", $new_price, $new_brand, $new_type, $new_quantity, $new_item_name, $des);
     $query_result = mysqli_query($bs_db_handle, $query);
-    echo $query;
+
     if(!$query_result)
         return false;
 
@@ -69,12 +68,16 @@ function bsf_items_delete_by_id($item_id) {
 
     $item_id = (int)$item_id;
     if($item_id == 0) # secure
-
         return false;
+    
 
     $query = sprintf("DELETE FROM `items` WHERE `item_id` = %d", $item_id);
-    $query_result = mysqli_query($bs_db_handle, $query);
+    $images = bsf_images_get('*', 'WHERE `item`=' . $item_id);
+    $image = $images[0];
+    if ($image) { unlink($image->image_path);
+        bsf_images_delete_by_id($image->image_id);}
 
+    $query_result = mysqli_query($bs_db_handle, $query);
     if(!$query_result)
         return false;
 
@@ -82,15 +85,17 @@ function bsf_items_delete_by_id($item_id) {
 
 }
 # update data of a specific item (by id) (all parameters is optimal expect $item_id (return true if item updated)
-function bsf_items_update($item_id, $price = null, $brand = null, $type = null, $in_stock = -1, $item_name = null) {
+function bsf_items_update($item_id, $price = null, $brand = null, $type = null, $quantity = null, $item_name = null, $des = null) {
     global $bs_db_handle;
     $item_id = (int)$item_id;
+
     if ($item_id == 0)
         return false;
 
-    $new_instock = (int)$in_stock;
+    $new_quantity = (int)$quantity;
 
     $item = bsf_items_get_by_id($item_id);
+
     if(!$item)
         return false;
 
@@ -99,16 +104,18 @@ function bsf_items_update($item_id, $price = null, $brand = null, $type = null, 
         return false;
 
     $fields = array();
-    if($new_instock == -1)
-        $new_instock = (int)$item -> in_stock;
 
-    $fields[count($fields)] = "`in_stock` = $new_instock";
+    $fields[count($fields)] = "`quantity` = $new_quantity";
 
     if(!empty($price)) {
         $new_price = (float)$price;
         if($new_price == 0)
             return false;
         $fields[count($fields)] = "`price` = $new_price";
+    }
+
+    if (!empty($des)) {
+        $fields[count($fields)] = "`des`= '$des'";
     }
 
     if(!empty($brand)) {
@@ -134,6 +141,7 @@ function bsf_items_update($item_id, $price = null, $brand = null, $type = null, 
     if (count($fields) == 1) {
         $query .= $fields[0] . "WHERE `item_id` = " . $item_id;
         $query_result = mysqli_query($bs_db_handle, $query);
+
         if(!$query_result)
             return false;
         else
@@ -149,15 +157,14 @@ function bsf_items_update($item_id, $price = null, $brand = null, $type = null, 
 
     $query .= "WHERE `item_id` = " . $item_id;
     $query_result = mysqli_query($bs_db_handle, $query);
-
     if(!$query_result)
         return false;
     else
+
         return true;
 
 }
 
-include('db_connect.php');
 
 
-?>
+
